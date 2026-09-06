@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Dashboard from '../components/Dashboard.tsx';
+---
+
+<BaseLayout
+  title="Dashboard — Simulated SEO Data"
+  description="Interactive SEO analytics dashboard rendered from simulated GSC, GA4, and Clarity datasets."
+  noindex={true}
+>
+  <section style="display: grid; gap: 16px; margin-bottom: 24px;">
+    <p class="eyebrow">Simulated dataset · seeded · reproducible</p>
+    <h1 style="font-size: 1.75rem;">Dashboard</h1>
+  </section>
+
+  <Dashboard client:load />
+</BaseLayout>

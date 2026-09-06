@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+type Props = {
+  title: string;
+  description: string;
+  noindex?: boolean;
+};
+
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <header style="border-bottom: 1px solid var(--color-border); background: var(--color-surface);">
+      <div
+        style="max-width: 1180px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;"
+      >
+        <a href="/" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em;"
+          >SEO Intelligence Dashboard</a
+        >
+        <nav style="display: flex; gap: 20px; font-size: 0.9rem;">
+          <a href="/">Overview</a>
+          <a href="/dashboard/">Dashboard</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer
+      style="border-top: 1px solid var(--color-border); padding: 24px; font-size: 0.85rem; color: var(--color-text-muted); text-align: center;"
+    >
+      Demo project using simulated SEO data · No real client accounts are accessed.
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="SEO Intelligence Dashboard — Demo with Simulated Data"
+  description="A React-based SEO analytics dashboard built with Astro, TypeScript, and a simulated GSC/GA4/Clarity dataset. Portfolio demo project."
+>
+  <section style="display: grid; gap: 32px;">
+    <div>
+      <p class="eyebrow">Phase 4 · Portfolio demo</p>
+      <h1 style="margin-top: 8px;">SEO Intelligence Dashboard</h1>
+      <p class="muted" style="margin-top: 12px; max-width: 60ch; font-size: 1.05rem;">
+        A React analytics surface built on top of an Astro shell, backed by a deterministic
+        simulated dataset shaped after Google Search Console, Google Analytics 4, and Microsoft
+        Clarity responses. The data boundary, processing layer, REST API, and dashboard UI are all
+        real and reviewable; the underlying data is <strong>synthetic</strong>.
+      </p>
+    </div>
+
+    <aside
+      class="surface"
+      style="padding: 16px 20px; border-left: 3px solid var(--color-warning);"
+      role="note"
+    >
+      <p style="font-weight: 600;">Demo project using simulated SEO data.</p>
+      <p class="muted" style="margin-top: 4px; font-size: 0.9rem;">
+        No real Search Console, GA4, or Clarity account is connected. Adapters in
+        <code>src/data/</code> produce deterministic numbers from a seeded RNG so every build shows the
+        same metrics.
+      </p>
+    </aside>
+
+    <div
+      style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));"
+    >
+      <article class="surface" style="padding: 20px;">
+        <p class="eyebrow">Architecture</p>
+        <h3 style="margin-top: 8px;">Data → API → UI</h3>
+        <p class="muted" style="margin-top: 8px; font-size: 0.9rem;">
+          Static simulated dataset, pure-function processing, Astro REST endpoints, React island
+          dashboard. Boundaries match PRD section 9.5.
+        </p>
+      </article>
+      <article class="surface" style="padding: 20px;">
+        <p class="eyebrow">Stack</p>
+        <h3 style="margin-top: 8px;">Astro + React + TS</h3>
+        <p class="muted" style="margin-top: 8px; font-size: 0.9rem;">
+          Strict TypeScript, ESLint with zero warnings, Prettier, and Vitest. Quality gates mirror
+          the rest of the portfolio.
+        </p>
+      </article>
+      <article class="surface" style="padding: 20px;">
+        <p class="eyebrow">Honesty</p>
+        <h3 style="margin-top: 8px;">Explicit data labels</h3>
+        <p class="muted" style="margin-top: 8px; font-size: 0.9rem;">
+          Every surface that shows numbers is tagged with its simulated source (GSC, GA4, Clarity)
+          per the project honesty policy.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <a
+        href="/dashboard/"
+        class="surface"
+        style="display: inline-block; padding: 12px 18px; text-decoration: none; font-weight: 600;"
+        >Open the dashboard →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

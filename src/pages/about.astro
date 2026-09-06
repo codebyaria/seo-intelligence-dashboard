@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About — SEO Intelligence Dashboard"
+  description="About this simulated SEO analytics dashboard and the technology decisions behind it."
+>
+  <article style="max-width: 70ch; display: grid; gap: 16px;">
+    <p class="eyebrow">About</p>
+    <h1>About this project</h1>
+    <p>
+      This is a portfolio demo built as Phase 4 of the DigiAgency application portfolio. It
+      demonstrates how a modern SEO analytics surface can be assembled from a clearly bounded data
+      layer up to a responsive React UI, without implying access to any real client account.
+    </p>
+
+    <h2 style="margin-top: 16px;">Architecture</h2>
+    <pre
+      class="surface"
+      style="padding: 16px; overflow-x: auto;"><code>{`src/data/         Simulated dataset (seeded, deterministic)
+        ↓
+src/lib/          Pure processing (filter, aggregate, trend)
+        ↓
+src/pages/api/    Astro REST endpoints (JSON boundary)
+        ↓
+src/components/   React island: <Dashboard client:load />`}</code></pre>
+
+    <h2 style="margin-top: 16px;">Honesty labels</h2>
+    <ul>
+      <li>
+        <strong>Demo Using Simulated Data</strong> — UI and processing are real; source data is synthetic.
+      </li>
+      <li>
+        Every chart and KPI carries a source tag (Simulated GSC, Simulated GA4, Simulated Clarity).
+      </li>
+      <li>Header banner on every page restates the simulated-data classification.</li>
+    </ul>
+
+    <h2 style="margin-top: 16px;">Why this stack</h2>
+    <p>
+      Astro handles SEO, metadata, sitemap, and robots for free while keeping client-side JavaScript
+      minimal. The dashboard itself runs as a single React island. Replacing the simulated adapters
+      with real GSC / GA4 / Clarity ingestion later is a localized change in <code>src/data/</code> —
+      the processing and UI layers do not need to change.
+    </p>
+  </article>
+</BaseLayout>
