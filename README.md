@@ -1,5 +1,7 @@
 # SEO Intelligence Dashboard
 
+[![CI](https://github.com/codebyaria/seo-intelligence-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/codebyaria/seo-intelligence-dashboard/actions/workflows/ci.yml)
+
 Phase 4 of the DigiAgency application portfolio. A React-based SEO analytics
 dashboard built with **Astro + TypeScript + React**, backed by a deterministic
 **simulated** dataset shaped after Google Search Console, Google Analytics 4,
